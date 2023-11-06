@@ -12,13 +12,29 @@ async function getData() {
       let courseWrapper = document.querySelector(".courseWrapper");
       let courseContainer = document.createElement("div");
       courseContainer.classList.add("courseWrapper");
+      const primaryColors = [
+        "255, 0, 0",
+        "0, 128, 0",
+        "0, 0, 255",
+        "255, 165, 0",
+        "128, 0, 128",
+      ];
+
+      const randomColor =
+        primaryColors[Math.floor(Math.random() * primaryColors.length)];
       let title = document.createElement("h2");
       title.innerHTML = data.short;
+      title.style.color = "rgb(" + randomColor + ")";
       let description = document.createElement("p");
       description.innerHTML = data.name;
       description.id = "description";
       let button = document.createElement("button");
       button.innerHTML = "Apply now";
+
+      button.style.borderColor = "rgb(" + randomColor + ")";
+      button.style.color = "rgb(" + randomColor + ")";
+      button.style.backgroundColor = "rgb(" + randomColor + ",0.35)";
+
       let pricing = document.createElement("p");
       pricing.innerHTML = "Fee starting at ₹799 per subject";
       pricing.id = "pricing";
